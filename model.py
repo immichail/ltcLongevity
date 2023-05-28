@@ -111,7 +111,7 @@ def getAttends(userId: str):
     recs = db.attends.find({'userId': userId})
     
     return [
-        {'d3LevelId': r['d3LevelId'], 'date': r['date']} for r in recs
+        {'d3LevelId': r['d3LevelId'], 'date': r['date']} for r in recs if 'd3LevelId' in r
     ]
 
 class ModelMain():
