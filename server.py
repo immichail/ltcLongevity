@@ -111,7 +111,7 @@ def distProb(dist: float):
     return 1 - math.tanh(dist / 10)
 
 
-# In[65]:
+# In[80]:
 
 
 from model import *
@@ -198,6 +198,9 @@ def recommendFilters(filters, userId, recBestLimit = 5, recRareLimit = 5):
 
     
     probVecBest, probVecRare = modelMain.recomendForUser(userId)
+    
+    print(probVecBest, probVecRare)
+    
     metaVec = modelAge(userId)
     
     d3LevelIds = recommendFiltersd3LevelIds(filters)
@@ -295,7 +298,7 @@ def recommendFiltersGroups(filters, userId, limit = 10, offset = 0):
     ]
 
 
-# In[66]:
+# In[81]:
 
 
 def encoder(d):
@@ -320,7 +323,7 @@ def encoder(d):
     return d
 
 
-# In[67]:
+# In[82]:
 
 
 class NoParameterFoundException(Exception):
@@ -431,7 +434,7 @@ def getRecommendationsByD0V2(userId: int):
     return res
 
 
-# In[68]:
+# In[83]:
 
 
 import sys
@@ -567,7 +570,7 @@ def searchFilters(filters, limit = 10, offset = 0):
     return res
 
 
-# In[69]:
+# In[84]:
 
 
 # def fuzzySearch(q, d3LevelNames: list):
@@ -724,7 +727,7 @@ def groupAvailableDates(
     return availableDates
 
 
-# In[70]:
+# In[85]:
 
 
 def getWorkId(groupId, date, timeStart):

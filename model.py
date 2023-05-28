@@ -137,8 +137,12 @@ class ModelMain():
 
         attends = getAttends(userId)
         
-        probVecBest = self.recommendVectorBest(attends, dateAttenuation = dateAttenuation)
-        probVecRare = self.recommendVectorRare(attends, dateAttenuation = dateAttenuation)
+        if len(attends) > 3:
+            probVecBest = self.recommendVectorBest(attends, dateAttenuation = dateAttenuation)
+            probVecRare = self.recommendVectorRare(attends, dateAttenuation = dateAttenuation)
+        else:
+            probVecBest = self.probTotal
+            probVecRare = self.probTotal
 
         for a in attends:
             probVecBest[self.d3Id2Idx[a['d3LevelId']]] = 0
